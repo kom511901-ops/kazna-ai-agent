@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://user:pass@db:5432/ks}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-openai}
+      LLM_MODEL: ${LLM_MODEL:-gpt-5.6-terra}
+      EMBED_MODEL: ${EMBED_MODEL:-text-embedding-3-large}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      CURRENT_FISCAL_YEAR: ${CURRENT_FISCAL_YEAR:-2026}
+      KB_ACTUAL_AS_OF: ${KB_ACTUAL_AS_OF:-2026-09-30}
+      RUN_LIVE_TESTS: ${RUN_LIVE_TESTS:-false}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ks
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d ks"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
