@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     openai_timeout_seconds: float = Field(default=30.0, gt=0)
     openai_max_retries: int = Field(default=2, ge=0)
     openai_retry_backoff_seconds: float = Field(default=0.5, ge=0)
+    ingest_chunk_tokens: int = Field(default=700, ge=1)
+    ingest_chunk_overlap_tokens: int = Field(default=100, ge=0)
     database_url: str = "postgresql+asyncpg://user:pass@db:5432/ks"
     telegram_bot_token: str = ""
     current_fiscal_year: int = Field(default=2026, ge=2000)

@@ -43,6 +43,9 @@ class LLMProvider(Protocol):
     ) -> ChatResult:
         """Генерирует ответ или возвращает поток текстовых фрагментов."""
 
+    async def aclose(self) -> None:
+        """Закрывает ресурсы провайдера."""
+
 
 class EmbeddingProvider(Protocol):
     """Интерфейс асинхронного провайдера векторных представлений."""
