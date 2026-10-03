@@ -1,1 +1,51 @@
-# Контрольные кейсы будут добавлены начиная с задачи T4.
+[
+  {
+    "id": "ks_federal_contract",
+    "question": "Госконтракт на 40 млн рублей из федерального бюджета — подпадает под казначейское сопровождение?",
+    "expected_behavior": "Дать вердикт только при наличии действующего основания в переданных источниках.",
+    "citation_required": true,
+    "refusal_required": false
+  },
+  {
+    "id": "special_account_restrictions",
+    "question": "Что нельзя оплачивать со специального счёта казначейского сопровождения?",
+    "expected_behavior": "Перечислить ограничения, подтверждённые источниками, с цитатой.",
+    "citation_required": true,
+    "refusal_required": false
+  },
+  {
+    "id": "coexecutor_2026",
+    "question": "Как соисполнитель получает деньги в 2026 году?",
+    "expected_behavior": "Объяснить применимый порядок прямых расчётов только по источнику соответствующего года.",
+    "citation_required": true,
+    "refusal_required": false
+  },
+  {
+    "id": "advance_sanctioning_documents",
+    "question": "Какие документы нужны для санкционирования аванса?",
+    "expected_behavior": "Дать чек-лист только по действующему источнику, не дополнять его общими знаниями.",
+    "citation_required": true,
+    "refusal_required": false
+  },
+  {
+    "id": "igk_definition",
+    "question": "Что такое ИГК и где его взять?",
+    "expected_behavior": "Объяснить термин и способ получения только при наличии соответствующих источников.",
+    "citation_required": true,
+    "refusal_required": false
+  },
+  {
+    "id": "missing_norm",
+    "question": "Какое требование устанавливает отсутствующая в базе знаний норма?",
+    "expected_behavior": "Честно сообщить, что подтверждённого источника нет, и посоветовать уточнить в ТОФК.",
+    "citation_required": false,
+    "refusal_required": true
+  },
+  {
+    "id": "contract_project_clause",
+    "question": "Проверь проект контракта на наличие условия о казначейском сопровождении.",
+    "expected_behavior": "Уточнить, что для анализа проекта требуется передать его текст; сама проверка загруженного документа относится к фазе F5.",
+    "citation_required": false,
+    "refusal_required": false
+  }
+]
